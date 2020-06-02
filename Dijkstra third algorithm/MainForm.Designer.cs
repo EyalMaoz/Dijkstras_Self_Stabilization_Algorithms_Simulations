@@ -34,6 +34,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.m_randomButton = new System.Windows.Forms.Button();
             this.m_procPanel = new System.Windows.Forms.Panel();
+            this.m_copyrightLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.m_deltaYLabel = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -44,7 +45,6 @@
             this.m_ringRadio = new System.Windows.Forms.RadioButton();
             this.m_displayArrowCheckBox = new System.Windows.Forms.CheckBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.m_copyrightLabel = new System.Windows.Forms.Label();
             this.m_procPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -106,6 +106,17 @@
             this.m_procPanel.Name = "m_procPanel";
             this.m_procPanel.Size = new System.Drawing.Size(644, 472);
             this.m_procPanel.TabIndex = 8;
+            // 
+            // m_copyrightLabel
+            // 
+            this.m_copyrightLabel.AutoSize = true;
+            this.m_copyrightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.m_copyrightLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.m_copyrightLabel.Location = new System.Drawing.Point(200, 441);
+            this.m_copyrightLabel.Name = "m_copyrightLabel";
+            this.m_copyrightLabel.Size = new System.Drawing.Size(251, 22);
+            this.m_copyrightLabel.TabIndex = 15;
+            this.m_copyrightLabel.Text = "© Eyal Maoz, Tomer Goldberg";
             // 
             // label3
             // 
@@ -250,16 +261,6 @@
             this.m_displayArrowCheckBox.Visible = false;
             this.m_displayArrowCheckBox.CheckedChanged += new System.EventHandler(this.DisplayArrowCheckBox_CheckedChanged);
             // 
-            // m_copyrightLabel
-            // 
-            this.m_copyrightLabel.AutoSize = true;
-            this.m_copyrightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.m_copyrightLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
-           this.m_copyrightLabel.Name = "m_copyrightLabel";
-            this.m_copyrightLabel.Size = new System.Drawing.Size(251, 22);
-            this.m_copyrightLabel.TabIndex = 15;
-            this.m_copyrightLabel.Text = "© Eyal Maoz, Tomer Goldberg";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -282,9 +283,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.m_copyrightLabel.Location = new System.Drawing.Point(this.Width / 2 - System.Windows.Forms.TextRenderer.MeasureText(m_copyrightLabel.Text, m_copyrightLabel.Font).Width / 2,
-               m_procPanel.Height - System.Windows.Forms.TextRenderer.MeasureText(m_copyrightLabel.Text, m_copyrightLabel.Font).Height - 10);
-
 
         }
 

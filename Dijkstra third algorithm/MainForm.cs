@@ -35,6 +35,8 @@ namespace Dijkstra_third_algorithm
         public MainForm()
         {
             InitializeComponent();
+            m_copyrightLabel.Location = new Point(this.Width / 2 - TextRenderer.MeasureText(m_copyrightLabel.Text, m_copyrightLabel.Font).Width / 2,
+                m_procPanel.Height - TextRenderer.MeasureText(m_copyrightLabel.Text, m_copyrightLabel.Font).Height - 10);
             buttons = new List<Button>();
             labels = new List<Label>();
             states = new Dictionary<Button, int>();
