@@ -45,6 +45,10 @@
             this.m_ringRadio = new System.Windows.Forms.RadioButton();
             this.m_displayArrowCheckBox = new System.Windows.Forms.CheckBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.roundButton1 = new Dijkstra_third_algorithm.RoundButton();
+            this.roundButton2 = new Dijkstra_third_algorithm.RoundButton();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.m_procPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -97,6 +101,10 @@
             // 
             // m_procPanel
             // 
+            this.m_procPanel.Controls.Add(this.label6);
+            this.m_procPanel.Controls.Add(this.label5);
+            this.m_procPanel.Controls.Add(this.roundButton2);
+            this.m_procPanel.Controls.Add(this.roundButton1);
             this.m_procPanel.Controls.Add(this.m_copyrightLabel);
             this.m_procPanel.Controls.Add(this.label3);
             this.m_procPanel.Controls.Add(this.m_deltaYLabel);
@@ -110,11 +118,11 @@
             // m_copyrightLabel
             // 
             this.m_copyrightLabel.AutoSize = true;
-            this.m_copyrightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.m_copyrightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.m_copyrightLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.m_copyrightLabel.Location = new System.Drawing.Point(200, 441);
             this.m_copyrightLabel.Name = "m_copyrightLabel";
-            this.m_copyrightLabel.Size = new System.Drawing.Size(251, 22);
+            this.m_copyrightLabel.Size = new System.Drawing.Size(199, 17);
             this.m_copyrightLabel.TabIndex = 15;
             this.m_copyrightLabel.Text = "© Eyal Maoz, Tomer Goldberg";
             // 
@@ -136,7 +144,7 @@
             this.m_deltaYLabel.AutoSize = true;
             this.m_deltaYLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.m_deltaYLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.m_deltaYLabel.Location = new System.Drawing.Point(11, 19);
+            this.m_deltaYLabel.Location = new System.Drawing.Point(491, 25);
             this.m_deltaYLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.m_deltaYLabel.Name = "m_deltaYLabel";
             this.m_deltaYLabel.Size = new System.Drawing.Size(0, 24);
@@ -261,6 +269,60 @@
             this.m_displayArrowCheckBox.Visible = false;
             this.m_displayArrowCheckBox.CheckedChanged += new System.EventHandler(this.DisplayArrowCheckBox_CheckedChanged);
             // 
+            // roundButton1
+            // 
+            this.roundButton1.BackColor = System.Drawing.Color.LightGreen;
+            this.roundButton1.Enabled = false;
+            this.roundButton1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.roundButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundButton1.ForeColor = System.Drawing.Color.Black;
+            this.roundButton1.Location = new System.Drawing.Point(12, 19);
+            this.roundButton1.Name = "roundButton1";
+            this.roundButton1.Size = new System.Drawing.Size(33, 33);
+            this.roundButton1.TabIndex = 16;
+            this.roundButton1.Text = "Pi";
+            this.roundButton1.UseVisualStyleBackColor = false;
+            // 
+            // roundButton2
+            // 
+            this.roundButton2.BackColor = System.Drawing.Color.LightYellow;
+            this.roundButton2.Enabled = false;
+            this.roundButton2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.roundButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundButton2.ForeColor = System.Drawing.Color.Black;
+            this.roundButton2.Location = new System.Drawing.Point(12, 58);
+            this.roundButton2.Name = "roundButton2";
+            this.roundButton2.Size = new System.Drawing.Size(33, 33);
+            this.roundButton2.TabIndex = 17;
+            this.roundButton2.Text = "Pi";
+            this.roundButton2.UseVisualStyleBackColor = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.Location = new System.Drawing.Point(44, 25);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(79, 20);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "- Priviliged";
+            this.toolTip1.SetToolTip(this.label5, "Number of processors");
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label6.Location = new System.Drawing.Point(44, 64);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(108, 20);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "- Not Priviliged";
+            this.toolTip1.SetToolTip(this.label6, "Number of processors");
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -303,6 +365,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label m_copyrightLabel;
+        private RoundButton roundButton2;
+        private RoundButton roundButton1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
     }
 }
 

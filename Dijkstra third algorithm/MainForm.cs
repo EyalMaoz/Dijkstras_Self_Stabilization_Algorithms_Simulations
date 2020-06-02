@@ -60,7 +60,6 @@ namespace Dijkstra_third_algorithm
             states[button] = ((states[button] + 1)) % k;
             button.Text = states[button].ToString();
             UpdatePriviliged();
-
         }
 
         private void P0_MouseClick(object sender, MouseEventArgs e)
@@ -131,7 +130,7 @@ namespace Dijkstra_third_algorithm
                 textBox1.TextChanged += TextBox1_TextChanged;
                 return;
             }
-            if (n_tmp > 0 && n_tmp < 3) n_tmp = 3;
+            if (n_tmp > 0 && n_tmp < 2) n_tmp = 2;
             N = n_tmp;
             textBox1.TextChanged -= TextBox1_TextChanged;
             textBox1.Text = N.ToString();
