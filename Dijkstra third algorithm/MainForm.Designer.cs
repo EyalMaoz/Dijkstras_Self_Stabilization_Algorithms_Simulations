@@ -34,10 +34,15 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.m_randomButton = new System.Windows.Forms.Button();
             this.m_procPanel = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.roundButton2 = new Dijkstra_third_algorithm.RoundButton();
+            this.roundButton1 = new Dijkstra_third_algorithm.RoundButton();
             this.m_copyrightLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.m_deltaYLabel = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.m_oneArrowButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.m_noArrowsButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,10 +50,6 @@
             this.m_ringRadio = new System.Windows.Forms.RadioButton();
             this.m_displayArrowCheckBox = new System.Windows.Forms.CheckBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.roundButton1 = new Dijkstra_third_algorithm.RoundButton();
-            this.roundButton2 = new Dijkstra_third_algorithm.RoundButton();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.m_procPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -112,8 +113,62 @@
             this.m_procPanel.Location = new System.Drawing.Point(0, 0);
             this.m_procPanel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.m_procPanel.Name = "m_procPanel";
-            this.m_procPanel.Size = new System.Drawing.Size(644, 472);
+            this.m_procPanel.Size = new System.Drawing.Size(644, 454);
             this.m_procPanel.TabIndex = 8;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label6.Location = new System.Drawing.Point(44, 64);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(108, 20);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "- Not Priviliged";
+            this.toolTip1.SetToolTip(this.label6, "Number of processors");
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.Location = new System.Drawing.Point(44, 25);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(79, 20);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "- Priviliged";
+            this.toolTip1.SetToolTip(this.label5, "Number of processors");
+            // 
+            // roundButton2
+            // 
+            this.roundButton2.BackColor = System.Drawing.Color.LightYellow;
+            this.roundButton2.Enabled = false;
+            this.roundButton2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.roundButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundButton2.ForeColor = System.Drawing.Color.Black;
+            this.roundButton2.Location = new System.Drawing.Point(12, 58);
+            this.roundButton2.Name = "roundButton2";
+            this.roundButton2.Size = new System.Drawing.Size(33, 33);
+            this.roundButton2.TabIndex = 17;
+            this.roundButton2.Text = "Pi";
+            this.roundButton2.UseVisualStyleBackColor = false;
+            // 
+            // roundButton1
+            // 
+            this.roundButton1.BackColor = System.Drawing.Color.LightGreen;
+            this.roundButton1.Enabled = false;
+            this.roundButton1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.roundButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundButton1.ForeColor = System.Drawing.Color.Black;
+            this.roundButton1.Location = new System.Drawing.Point(12, 19);
+            this.roundButton1.Name = "roundButton1";
+            this.roundButton1.Size = new System.Drawing.Size(33, 33);
+            this.roundButton1.TabIndex = 16;
+            this.roundButton1.Text = "Pi";
+            this.roundButton1.UseVisualStyleBackColor = false;
             // 
             // m_copyrightLabel
             // 
@@ -133,7 +188,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label3.Location = new System.Drawing.Point(270, 644);
+            this.label3.Location = new System.Drawing.Point(270, 626);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(251, 22);
             this.label3.TabIndex = 14;
@@ -163,6 +218,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.m_oneArrowButton);
             this.splitContainer1.Panel1.Controls.Add(this.label4);
             this.splitContainer1.Panel1.Controls.Add(this.m_noArrowsButton);
             this.splitContainer1.Panel1.Controls.Add(this.label2);
@@ -177,8 +233,25 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.m_procPanel);
             this.splitContainer1.Size = new System.Drawing.Size(644, 568);
-            this.splitContainer1.SplitterDistance = 92;
+            this.splitContainer1.SplitterDistance = 110;
             this.splitContainer1.TabIndex = 9;
+            // 
+            // m_oneArrowButton
+            // 
+            this.m_oneArrowButton.BackColor = System.Drawing.Color.Gold;
+            this.m_oneArrowButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.m_oneArrowButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.m_oneArrowButton.ForeColor = System.Drawing.Color.Black;
+            this.m_oneArrowButton.Location = new System.Drawing.Point(532, 42);
+            this.m_oneArrowButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.m_oneArrowButton.Name = "m_oneArrowButton";
+            this.m_oneArrowButton.Size = new System.Drawing.Size(98, 25);
+            this.m_oneArrowButton.TabIndex = 14;
+            this.m_oneArrowButton.Text = "One Arrow";
+            this.toolTip1.SetToolTip(this.m_oneArrowButton, "Set state such that only one arrow exist");
+            this.m_oneArrowButton.UseVisualStyleBackColor = false;
+            this.m_oneArrowButton.Visible = false;
+            this.m_oneArrowButton.Click += new System.EventHandler(this.OneArrowButton_Click);
             // 
             // label4
             // 
@@ -198,7 +271,7 @@
             this.m_noArrowsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.m_noArrowsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.m_noArrowsButton.ForeColor = System.Drawing.Color.Black;
-            this.m_noArrowsButton.Location = new System.Drawing.Point(532, 42);
+            this.m_noArrowsButton.Location = new System.Drawing.Point(532, 75);
             this.m_noArrowsButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.m_noArrowsButton.Name = "m_noArrowsButton";
             this.m_noArrowsButton.Size = new System.Drawing.Size(98, 25);
@@ -269,60 +342,6 @@
             this.m_displayArrowCheckBox.Visible = false;
             this.m_displayArrowCheckBox.CheckedChanged += new System.EventHandler(this.DisplayArrowCheckBox_CheckedChanged);
             // 
-            // roundButton1
-            // 
-            this.roundButton1.BackColor = System.Drawing.Color.LightGreen;
-            this.roundButton1.Enabled = false;
-            this.roundButton1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.roundButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundButton1.ForeColor = System.Drawing.Color.Black;
-            this.roundButton1.Location = new System.Drawing.Point(12, 19);
-            this.roundButton1.Name = "roundButton1";
-            this.roundButton1.Size = new System.Drawing.Size(33, 33);
-            this.roundButton1.TabIndex = 16;
-            this.roundButton1.Text = "Pi";
-            this.roundButton1.UseVisualStyleBackColor = false;
-            // 
-            // roundButton2
-            // 
-            this.roundButton2.BackColor = System.Drawing.Color.LightYellow;
-            this.roundButton2.Enabled = false;
-            this.roundButton2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.roundButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundButton2.ForeColor = System.Drawing.Color.Black;
-            this.roundButton2.Location = new System.Drawing.Point(12, 58);
-            this.roundButton2.Name = "roundButton2";
-            this.roundButton2.Size = new System.Drawing.Size(33, 33);
-            this.roundButton2.TabIndex = 17;
-            this.roundButton2.Text = "Pi";
-            this.roundButton2.UseVisualStyleBackColor = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(44, 25);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 20);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "- Priviliged";
-            this.toolTip1.SetToolTip(this.label5, "Number of processors");
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Location = new System.Drawing.Point(44, 64);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(108, 20);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "- Not Priviliged";
-            this.toolTip1.SetToolTip(this.label6, "Number of processors");
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -369,6 +388,7 @@
         private RoundButton roundButton1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button m_oneArrowButton;
     }
 }
 

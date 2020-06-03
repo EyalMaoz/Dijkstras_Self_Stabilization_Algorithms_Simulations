@@ -19,7 +19,7 @@ namespace Dijkstra_third_algorithm
         private readonly Color notPriviligedButtonColor = Color.LightYellow;
         private readonly Color priviligedButtonColor = Color.LightGreen;
         #endregion
-        
+
         #region Members
         private int N = 0;
         private List<Button> buttons;
@@ -142,7 +142,7 @@ namespace Dijkstra_third_algorithm
         {
             SetLocation();
             m_copyrightLabel.Location = new Point(this.Width / 2 - TextRenderer.MeasureText(m_copyrightLabel.Text, m_copyrightLabel.Font).Width / 2,
-                m_procPanel.Height - TextRenderer.MeasureText(m_copyrightLabel.Text, m_copyrightLabel.Font).Height-10);
+                m_procPanel.Height - TextRenderer.MeasureText(m_copyrightLabel.Text, m_copyrightLabel.Font).Height - 10);
         }
 
         private void Random_Click(object sender, EventArgs e)
@@ -166,6 +166,31 @@ namespace Dijkstra_third_algorithm
                 states[b] = state;
                 b.Text = states[b].ToString();
             }
+            UpdatePriviliged();
+        }
+
+        private void OneArrowButton_Click(object sender, EventArgs e)
+        {
+            if (states.Count == 0) return;
+            var state = (states.First().Value + 1) % k;
+            var rand = new Random();
+
+            int randomIndex = rand.Next(1, buttons.Count - 1);
+            for (int i = 0; i < randomIndex; i++)
+            {
+                Button b = buttons[i];
+                states[b] = state;
+                b.Text = states[b].ToString();
+            }
+            if (state % 2 == 0) state = (state + 1) % k;
+            else state = (state - 1) % k;
+            for (int i = randomIndex; i < buttons.Count; i++)
+            {
+                Button b = buttons[i];
+                states[b] = state;
+                b.Text = states[b].ToString();
+            }
+
             UpdatePriviliged();
         }
         #endregion
@@ -347,6 +372,7 @@ namespace Dijkstra_third_algorithm
             m_displayArrowCheckBox.Visible = m_sringRadio.Checked;
             m_deltaYLabel.Visible = m_displayArrowCheckBox.Checked;
             m_noArrowsButton.Visible = m_displayArrowCheckBox.Checked && m_sringRadio.Checked;
+            m_oneArrowButton.Visible = m_displayArrowCheckBox.Checked && m_sringRadio.Checked;
         }
         #endregion
 
