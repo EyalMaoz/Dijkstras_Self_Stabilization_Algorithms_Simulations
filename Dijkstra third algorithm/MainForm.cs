@@ -16,6 +16,8 @@ namespace Dijkstra_third_algorithm
         #region Constants
         private const int k = 3;
         private const int buttonWidth = 70;
+        private const int kMaxProc = 20;
+        private const int kMinProc = 3;
         private readonly Color notPriviligedButtonColor = Color.LightYellow;
         private readonly Color priviligedButtonColor = Color.LightGreen;
         #endregion
@@ -114,24 +116,24 @@ namespace Dijkstra_third_algorithm
             UpdateGUI();
         }
 
-        private void TextBox1_TextChanged(object sender, EventArgs e)
+        private void NumOfProcTextBox_TextChanged(object sender, EventArgs e)
         {
             int n_tmp = 0;
-            if (string.IsNullOrEmpty(textBox1.Text))
+            if (string.IsNullOrEmpty(m_numOfProcTextBox.Text))
             {
                 N = 0;
                 GenerateProcessors();
                 return;
             }
-            else if (!int.TryParse(textBox1.Text, out n_tmp))
+            else if (!int.TryParse(m_numOfProcTextBox.Text, out n_tmp))
             {
-                textBox1.TextChanged -= TextBox1_TextChanged;
-                textBox1.Text = N.ToString();
-                textBox1.TextChanged += TextBox1_TextChanged;
+                m_numOfProcTextBox.TextChanged -= NumOfProcTextBox_TextChanged;
+                m_numOfProcTextBox.Text = N.ToString();
+                m_numOfProcTextBox.TextChanged += NumOfProcTextBox_TextChanged;
                 return;
             }
-            if (n_tmp > 0 && n_tmp < 3) n_tmp = 3;
-            if (n_tmp > 20) n_tmp = 20;
+            if (n_tmp > 0 && n_tmp < kMinProc) n_tmp = kMinProc;
+            if (n_tmp > kMaxProc) n_tmp = kMaxProc;
             N = n_tmp;
 
             GenerateProcessors();
@@ -257,19 +259,24 @@ namespace Dijkstra_third_algorithm
                 if (i == 0)
                 {
                     button.MouseDown += P0_MouseClick;
-                    toolTip1.SetToolTip(button, @"IF 𝑥(0)+1=𝑥(1)" + "\n THEN 𝑥(0)≔𝑥(0)-1" + "\n\nRight Click - Increase state.\nLeft Click - Make a move (if priviliged)");
+                    toolTip1.SetToolTip(button, @"IF 𝑥(0)+1=𝑥(1)" + "\n THEN 𝑥(0)≔𝑥(0)-1"
+                        + "\n\nRight Click - Increase state.\nLeft Click - Make a move (if priviliged)");
                 }
                 else if (i == N - 1)
                 {
                     button.MouseDown += PN_1_MouseClick;
                     //toolTip1.SetToolTip(button, @"IF 𝑥(𝑛−2)=𝑥(0) AND 𝑥(𝑛−1)≠𝑥(0)+1 THEN 𝑥(𝑛−1)≔𝑥(0)+1");
-                    toolTip1.SetToolTip(button, @"IF 𝑥(" + (N - 2) + ")=𝑥(0) AND 𝑥(" + (N - 1) + ")≠𝑥(0)+1\n THEN 𝑥(" + (N - 2) + ")≔𝑥(0)+1" + "\n\nRight Click - Increase state.\nLeft Click - Make a move (if priviliged)");
+                    toolTip1.SetToolTip(button, @"IF 𝑥(" + (N - 2) + ")=𝑥(0) AND 𝑥(" + (N - 1)
+                        + ")≠𝑥(0)+1\n THEN 𝑥(" + (N - 2) + ")≔𝑥(0)+1"
+                        + "\n\nRight Click - Increase state.\nLeft Click - Make a move (if priviliged)");
                 }
                 else
                 {
                     button.MouseDown += S_MouseClick;
                     //toolTip1.SetToolTip(button, @"IF 𝑥(𝑖)=𝑥(𝑖−1)−1 OR 𝑥(𝑖)=𝑥(𝑖+𝑖)−1 THEN 𝑥(𝑖)≔𝑥(𝑖)+1");
-                    toolTip1.SetToolTip(button, @"IF 𝑥(" + i + ")=𝑥(" + (i - 1) + ")−1 OR 𝑥(" + i + ")=𝑥(" + (i + 1) + ")−1 \n THEN 𝑥(" + i + ")≔𝑥(" + i + ")+1" + "\n\nRight Click - Increase state.\nLeft Click - Make a move (if priviliged)");
+                    toolTip1.SetToolTip(button, @"IF 𝑥(" + i + ")=𝑥(" + (i - 1) + ")−1 OR 𝑥("
+                        + i + ")=𝑥(" + (i + 1) + ")−1 \n THEN 𝑥(" + i + ")≔𝑥(" + i + ")+1"
+                        + "\n\nRight Click - Increase state.\nLeft Click - Make a move (if priviliged)");
                 }
 
                 m_procPanel.Controls.Add(button);

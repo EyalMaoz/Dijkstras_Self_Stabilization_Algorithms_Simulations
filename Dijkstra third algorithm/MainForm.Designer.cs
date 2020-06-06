@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.m_numOfProcTextBox = new System.Windows.Forms.TextBox();
             this.m_randomButton = new System.Windows.Forms.Button();
             this.m_procPanel = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -70,17 +70,18 @@
             this.label1.Text = "N = ";
             this.toolTip1.SetToolTip(this.label1, "Number of processors");
             // 
-            // textBox1
+            // m_numOfProcTextBox
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.textBox1.Location = new System.Drawing.Point(48, 13);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(36, 29);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.TabStop = false;
-            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
+            this.m_numOfProcTextBox.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.m_numOfProcTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.m_numOfProcTextBox.Location = new System.Drawing.Point(48, 13);
+            this.m_numOfProcTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.m_numOfProcTextBox.Name = "m_numOfProcTextBox";
+            this.m_numOfProcTextBox.Size = new System.Drawing.Size(36, 29);
+            this.m_numOfProcTextBox.TabIndex = 1;
+            this.m_numOfProcTextBox.TabStop = false;
+            this.m_numOfProcTextBox.Text = "0";
+            this.m_numOfProcTextBox.TextChanged += new System.EventHandler(this.NumOfProcTextBox_TextChanged);
             // 
             // m_randomButton
             // 
@@ -197,7 +198,7 @@
             this.splitContainer1.Panel1.Controls.Add(this.m_sringRadio);
             this.splitContainer1.Panel1.Controls.Add(this.m_ringRadio);
             this.splitContainer1.Panel1.Controls.Add(this.m_randomButton);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.m_numOfProcTextBox);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
             this.splitContainer1.Panel1.Controls.Add(this.m_displayArrowCheckBox);
             // 
@@ -378,7 +379,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox m_numOfProcTextBox;
         private System.Windows.Forms.Button m_randomButton;
         private System.Windows.Forms.Panel m_procPanel;
         private System.Windows.Forms.SplitContainer splitContainer1;
