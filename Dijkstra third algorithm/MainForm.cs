@@ -130,11 +130,10 @@ namespace Dijkstra_third_algorithm
                 textBox1.TextChanged += TextBox1_TextChanged;
                 return;
             }
-            if (n_tmp > 0 && n_tmp < 2) n_tmp = 2;
+            if (n_tmp > 0 && n_tmp < 3) n_tmp = 3;
+            if (n_tmp > 20) n_tmp = 20;
             N = n_tmp;
-            textBox1.TextChanged -= TextBox1_TextChanged;
-            textBox1.Text = N.ToString();
-            textBox1.TextChanged += TextBox1_TextChanged;
+
             GenerateProcessors();
         }
 
@@ -244,6 +243,7 @@ namespace Dijkstra_third_algorithm
                     UseVisualStyleBackColor = true,
                     Text = "0",
                     BackColor = notPriviligedButtonColor
+
                 };
                 button.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); //transparent
                 button.FlatAppearance.BorderSize = 0;
@@ -257,15 +257,19 @@ namespace Dijkstra_third_algorithm
                 if (i == 0)
                 {
                     button.MouseDown += P0_MouseClick;
+                    toolTip1.SetToolTip(button, @"IF 𝑥(0)+1=𝑥(1)" + "\n THEN 𝑥(0)≔𝑥(0)-1" + "\n\nRight Click - Increase state.\nLeft Click - Make a move (if priviliged)");
                 }
                 else if (i == N - 1)
                 {
                     button.MouseDown += PN_1_MouseClick;
-
+                    //toolTip1.SetToolTip(button, @"IF 𝑥(𝑛−2)=𝑥(0) AND 𝑥(𝑛−1)≠𝑥(0)+1 THEN 𝑥(𝑛−1)≔𝑥(0)+1");
+                    toolTip1.SetToolTip(button, @"IF 𝑥(" + (N - 2) + ")=𝑥(0) AND 𝑥(" + (N - 1) + ")≠𝑥(0)+1\n THEN 𝑥(" + (N - 2) + ")≔𝑥(0)+1" + "\n\nRight Click - Increase state.\nLeft Click - Make a move (if priviliged)");
                 }
                 else
                 {
                     button.MouseDown += S_MouseClick;
+                    //toolTip1.SetToolTip(button, @"IF 𝑥(𝑖)=𝑥(𝑖−1)−1 OR 𝑥(𝑖)=𝑥(𝑖+𝑖)−1 THEN 𝑥(𝑖)≔𝑥(𝑖)+1");
+                    toolTip1.SetToolTip(button, @"IF 𝑥(" + i + ")=𝑥(" + (i - 1) + ")−1 OR 𝑥(" + i + ")=𝑥(" + (i + 1) + ")−1 \n THEN 𝑥(" + i + ")≔𝑥(" + i + ")+1" + "\n\nRight Click - Increase state.\nLeft Click - Make a move (if priviliged)");
                 }
 
                 m_procPanel.Controls.Add(button);
