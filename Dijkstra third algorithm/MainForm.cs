@@ -190,7 +190,7 @@ namespace Dijkstra_third_algorithm
             }
             if (state % 2 == 0) state = (state + 1) % k;
             else state = (state - 1) % k;
-            for (int i = randomIndex; i < buttons.Count; i++)
+            for (int i = randomIndex; i < buttons.Count; i++) 
             {
                 Button b = buttons[i];
                 states[b] = state;
