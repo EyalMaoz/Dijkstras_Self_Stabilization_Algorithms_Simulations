@@ -36,10 +36,13 @@
             this.m_procPanel = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.roundButton2 = new Dijkstra_third_algorithm.RoundButton();
+            this.roundButton1 = new Dijkstra_third_algorithm.RoundButton();
             this.m_copyrightLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.m_deltaYLabel = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.m_autoSchedularCheckbox = new System.Windows.Forms.CheckBox();
             this.m_oneArrowButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.m_noArrowsButton = new System.Windows.Forms.Button();
@@ -48,8 +51,7 @@
             this.m_ringRadio = new System.Windows.Forms.RadioButton();
             this.m_displayArrowCheckBox = new System.Windows.Forms.CheckBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.roundButton2 = new Dijkstra_third_algorithm.RoundButton();
-            this.roundButton1 = new Dijkstra_third_algorithm.RoundButton();
+            this.m_chosenLabel = new System.Windows.Forms.Label();
             this.m_procPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -103,6 +105,7 @@
             // 
             // m_procPanel
             // 
+            this.m_procPanel.Controls.Add(this.m_chosenLabel);
             this.m_procPanel.Controls.Add(this.label6);
             this.m_procPanel.Controls.Add(this.label5);
             this.m_procPanel.Controls.Add(this.roundButton2);
@@ -142,6 +145,34 @@
             this.label5.TabIndex = 14;
             this.label5.Text = "- Priviliged";
             this.toolTip1.SetToolTip(this.label5, "Number of processors");
+            // 
+            // roundButton2
+            // 
+            this.roundButton2.BackColor = System.Drawing.Color.LightYellow;
+            this.roundButton2.Enabled = false;
+            this.roundButton2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.roundButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundButton2.ForeColor = System.Drawing.Color.Black;
+            this.roundButton2.Location = new System.Drawing.Point(12, 58);
+            this.roundButton2.Name = "roundButton2";
+            this.roundButton2.Size = new System.Drawing.Size(33, 33);
+            this.roundButton2.TabIndex = 17;
+            this.roundButton2.Text = "Pi";
+            this.roundButton2.UseVisualStyleBackColor = false;
+            // 
+            // roundButton1
+            // 
+            this.roundButton1.BackColor = System.Drawing.Color.LightGreen;
+            this.roundButton1.Enabled = false;
+            this.roundButton1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.roundButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundButton1.ForeColor = System.Drawing.Color.Black;
+            this.roundButton1.Location = new System.Drawing.Point(12, 19);
+            this.roundButton1.Name = "roundButton1";
+            this.roundButton1.Size = new System.Drawing.Size(33, 33);
+            this.roundButton1.TabIndex = 16;
+            this.roundButton1.Text = "Pi";
+            this.roundButton1.UseVisualStyleBackColor = false;
             // 
             // m_copyrightLabel
             // 
@@ -191,6 +222,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.m_autoSchedularCheckbox);
             this.splitContainer1.Panel1.Controls.Add(this.m_oneArrowButton);
             this.splitContainer1.Panel1.Controls.Add(this.label4);
             this.splitContainer1.Panel1.Controls.Add(this.m_noArrowsButton);
@@ -208,6 +240,23 @@
             this.splitContainer1.Size = new System.Drawing.Size(707, 658);
             this.splitContainer1.SplitterDistance = 110;
             this.splitContainer1.TabIndex = 9;
+            // 
+            // m_autoSchedularCheckbox
+            // 
+            this.m_autoSchedularCheckbox.Appearance = System.Windows.Forms.Appearance.Button;
+            this.m_autoSchedularCheckbox.BackColor = System.Drawing.Color.Red;
+            this.m_autoSchedularCheckbox.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.m_autoSchedularCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.m_autoSchedularCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.m_autoSchedularCheckbox.Location = new System.Drawing.Point(12, 54);
+            this.m_autoSchedularCheckbox.Name = "m_autoSchedularCheckbox";
+            this.m_autoSchedularCheckbox.Size = new System.Drawing.Size(111, 37);
+            this.m_autoSchedularCheckbox.TabIndex = 16;
+            this.m_autoSchedularCheckbox.Text = "Auto Scheduler";
+            this.m_autoSchedularCheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.toolTip1.SetToolTip(this.m_autoSchedularCheckbox, "Will choose priviliged processor automatically every 2 seconds");
+            this.m_autoSchedularCheckbox.UseVisualStyleBackColor = false;
+            this.m_autoSchedularCheckbox.CheckedChanged += new System.EventHandler(this.AutoSchedularCheckbox_CheckedChanged);
             // 
             // m_oneArrowButton
             // 
@@ -323,33 +372,16 @@
             this.toolTip1.ReshowDelay = 100;
             this.toolTip1.ToolTipTitle = "Guide";
             // 
-            // roundButton2
+            // m_chosenLabel
             // 
-            this.roundButton2.BackColor = System.Drawing.Color.LightYellow;
-            this.roundButton2.Enabled = false;
-            this.roundButton2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.roundButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundButton2.ForeColor = System.Drawing.Color.Black;
-            this.roundButton2.Location = new System.Drawing.Point(12, 58);
-            this.roundButton2.Name = "roundButton2";
-            this.roundButton2.Size = new System.Drawing.Size(33, 33);
-            this.roundButton2.TabIndex = 17;
-            this.roundButton2.Text = "Pi";
-            this.roundButton2.UseVisualStyleBackColor = false;
-            // 
-            // roundButton1
-            // 
-            this.roundButton1.BackColor = System.Drawing.Color.LightGreen;
-            this.roundButton1.Enabled = false;
-            this.roundButton1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.roundButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundButton1.ForeColor = System.Drawing.Color.Black;
-            this.roundButton1.Location = new System.Drawing.Point(12, 19);
-            this.roundButton1.Name = "roundButton1";
-            this.roundButton1.Size = new System.Drawing.Size(33, 33);
-            this.roundButton1.TabIndex = 16;
-            this.roundButton1.Text = "Pi";
-            this.roundButton1.UseVisualStyleBackColor = false;
+            this.m_chosenLabel.AutoSize = true;
+            this.m_chosenLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.m_chosenLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.m_chosenLabel.Location = new System.Drawing.Point(317, 28);
+            this.m_chosenLabel.Name = "m_chosenLabel";
+            this.m_chosenLabel.Size = new System.Drawing.Size(0, 24);
+            this.m_chosenLabel.TabIndex = 19;
+            this.m_chosenLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainForm
             // 
@@ -398,6 +430,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button m_oneArrowButton;
+        private System.Windows.Forms.CheckBox m_autoSchedularCheckbox;
+        private System.Windows.Forms.Label m_chosenLabel;
     }
 }
 

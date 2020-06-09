@@ -31,6 +31,8 @@ namespace Dijkstra_third_algorithm
         private Dictionary<Button, int> states;
         private int numOfLeft = 0;
         private int numOfRight = 0;
+        private bool autoScheulder = false;
+        private Timer timerScheduler;
         #endregion
 
         #region Constructor
@@ -39,12 +41,19 @@ namespace Dijkstra_third_algorithm
             InitializeComponent();
             m_copyrightLabel.Location = new Point(this.Width / 2 - TextRenderer.MeasureText(m_copyrightLabel.Text, m_copyrightLabel.Font).Width / 2,
                 m_procPanel.Height - TextRenderer.MeasureText(m_copyrightLabel.Text, m_copyrightLabel.Font).Height - 10);
+            m_chosenLabel.Location = new Point(this.Width / 2 - TextRenderer.MeasureText("Selected Processor: P0", m_chosenLabel.Font).Width / 2,
+               20);
             buttons = new List<Button>();
             labels = new List<Label>();
             states = new Dictionary<Button, int>();
             leftArrows = new List<Label>();
             rightArrows = new List<Label>();
-            this.ForeColor = Color.WhiteSmoke;
+            timerScheduler = new Timer()
+            {
+                Interval = 2000
+            };
+            timerScheduler.Tick += TimerScheduler_Tick;
+            //this.ForeColor = Color.WhiteSmoke;
             UpdatePriviliged();
         }
         #endregion
@@ -88,13 +97,6 @@ namespace Dijkstra_third_algorithm
             Button button = sender as Button;
             if (button.BackColor == notPriviligedButtonColor) return;
             states[button] = (states[buttons[0]] + 1) % k;
-            button.Text = states[button].ToString();
-            UpdatePriviliged();
-        }
-
-        private void RightClickOnButton(Button button)
-        {
-            states[button] = (states[button] + 1) % k;
             button.Text = states[button].ToString();
             UpdatePriviliged();
         }
@@ -144,6 +146,9 @@ namespace Dijkstra_third_algorithm
             SetLocation();
             m_copyrightLabel.Location = new Point(this.Width / 2 - TextRenderer.MeasureText(m_copyrightLabel.Text, m_copyrightLabel.Font).Width / 2,
                 m_procPanel.Height - TextRenderer.MeasureText(m_copyrightLabel.Text, m_copyrightLabel.Font).Height - 10);
+            m_chosenLabel.Location = new Point(this.Width / 2 - TextRenderer.MeasureText(m_chosenLabel.Text, m_chosenLabel.Font).Width / 2,
+               20);
+
         }
 
         private void Random_Click(object sender, EventArgs e)
@@ -193,6 +198,21 @@ namespace Dijkstra_third_algorithm
             }
 
             UpdatePriviliged();
+        }
+
+        private void AutoSchedularCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            autoScheulder = m_autoSchedularCheckbox.Checked;
+            m_autoSchedularCheckbox.BackColor = autoScheulder == true ? Color.Green : Color.Red;
+            if (autoScheulder)
+            {
+                timerScheduler.Start();
+            }
+            else
+            {
+                m_chosenLabel.Text = string.Empty;
+                timerScheduler.Stop();
+            }
         }
         #endregion
 
@@ -385,7 +405,42 @@ namespace Dijkstra_third_algorithm
             m_noArrowsButton.Visible = m_displayArrowCheckBox.Checked && m_sringRadio.Checked;
             m_oneArrowButton.Visible = m_displayArrowCheckBox.Checked && m_sringRadio.Checked;
         }
-        #endregion
 
+        private void RightClickOnButton(Button button)
+        {
+            states[button] = (states[button] + 1) % k;
+            button.Text = states[button].ToString();
+            UpdatePriviliged();
+        }
+
+        private void TimerScheduler_Tick(object sender, EventArgs e)
+        {
+            if (N == 0) return;
+            var rand = new Random();
+            bool finished = false;
+            while (!finished)
+            {
+                int chosenIndex = rand.Next(0, buttons.Count);
+                if (buttons[chosenIndex].BackColor == priviligedButtonColor)
+                {
+                    m_chosenLabel.Text = "Selected Processor: P" + chosenIndex;
+                    MouseEventArgs args = new MouseEventArgs(MouseButtons.Left, 1, 0, 0, 0);
+                    if (chosenIndex == 0)
+                    {
+                        P0_MouseClick(buttons[chosenIndex], args);
+                    }
+                    else if (chosenIndex == buttons.Count - 1)
+                    {
+                        PN_1_MouseClick(buttons[chosenIndex], args);
+                    }
+                    else
+                    {
+                        S_MouseClick(buttons[chosenIndex], args);
+                    }
+                    finished = true;
+                }
+            }
+        }
+        #endregion
     }
 }
