@@ -1,10 +1,12 @@
-# Dijkstra's self stabilization 3rd algorithm
+# Dijkstra's self stabilization algorithms
 As part of a presentation for Distributed Computing Seminar, I made this simulation tool for Dijkstra's self stabilization 3rd algorithm that can be found here:
 http://www.cs.utexas.edu/~EWD/ewd04xx/EWD426.PDF
 
 The third algorithm is about the 3-state machines.
+My lecturer usually teaches only the first algorithm so I added the option for the first algorithm of Dijkstra as well 
+so next he can demonstrate while teaching. 
 
-This simulation tool helped us understand Dijkstra's proof for this algorithm.
+This simulation tool helped me understand Dijkstra's proof for the 3rd algorithm.
 
 ### Executable file can be found here:
 https://drive.google.com/drive/folders/1lx825_HKxlDyZ9ukRVYYo4rwvEABxys8?usp=sharing
