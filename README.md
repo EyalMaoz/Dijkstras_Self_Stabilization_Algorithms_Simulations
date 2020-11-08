@@ -14,19 +14,21 @@ https://drive.google.com/drive/folders/1lx825_HKxlDyZ9ukRVYYo4rwvEABxys8?usp=sha
 
 # The Program
 
-After opening the program N=0 and no processors exists:
+After opening the program the default algorithm is the first (toggle button), N=0 and no processors exists:
 
-<a href="https://ibb.co/v4DVLHp"><img src="https://i.ibb.co/HTXBGV6/Dijkstra-s-3rd-Algorithm-Simulation-06-06-2020-16-33-08.png" alt="Dijkstra-s-3rd-Algorithm-Simulation-06-06-2020-16-33-08" border="0"></a>
+<a href="https://ibb.co/SPLqFcJ"><img src="https://i.ibb.co/G0hgz9F/image.png" alt="image" border="0"></a>
 
 And after entering value for N, the processors will be arranged in a ring with random state:
 
-<a href="https://ibb.co/PQx7JGt"><img src="https://i.ibb.co/vY17f4D/Dijkstra-s-3rd-Algorithm-Simulation-06-06-2020-16-33-13.png" alt="Dijkstra-s-3rd-Algorithm-Simulation-06-06-2020-16-33-13" border="0"></a>
+<a href="https://ibb.co/tbhmd8s"><img src="https://i.ibb.co/7GzY92W/image.png" alt="image" border="0"></a>
+
+And for the Third algorithm (old GUI before adding the first algorithm):
 
 <a href="https://ibb.co/5WgJF2H"><img src="https://i.ibb.co/wNF2sYm/0.png" alt="0" border="0"></a>
 
 <a href="https://ibb.co/yXMB2F9"><img src="https://i.ibb.co/CzXsLKc/1.png" alt="1" border="0"></a>
 
-Also can be displayed as a string:
+Also can be displayed as a string (because of the proof itself):
 
 <a href="https://ibb.co/86gtcvN"><img src="https://i.ibb.co/vZ4RYyV/Dijkstra-s-3rd-Algorithm-Simulation-06-06-2020-16-33-31.png" alt="Dijkstra-s-3rd-Algorithm-Simulation-06-06-2020-16-33-31" border="0"></a>
 
